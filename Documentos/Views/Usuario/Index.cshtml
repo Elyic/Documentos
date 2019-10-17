@@ -1,0 +1,30 @@
+﻿@model Documentos.Models.ViewModels.usuarioViewModel
+@{
+    ViewBag.Title = "Login";
+}
+
+<h2>Index</h2>
+@using (Html.BeginForm("Login", "usuario", FormMethod.Post))
+{
+    <div class="row">
+        <div class="col-md-12">
+            <div class="form-group">
+                <!-- Creo label   -->
+                @Html.LabelFor(p => p.usuario):
+                <!-- Creo textbox  -->
+                @Html.TextBoxFor(p => p.usuario, "", new { @class = "form-control" })
+                <!-- para mostrar mensaje de error  -->
+                @Html.ValidationMessageFor(p => p.usuario, null, new { @class = "text-danger" })
+            </div>
+            <div class="form-group">
+                @Html.LabelFor(p => p.contraseña):
+                @Html.TextBoxFor(p => p.contraseña, "", new { @class = "form-control" })
+                @Html.ValidationMessageFor(p => p.contraseña, null, new { @class = "text-danger" })
+            </div>
+            <br />
+            <div style="text-align:center">
+                <input type="submit" class="btn btn-primary" value="Guardar" />
+            </div>
+        </div>
+    </div>
+}
